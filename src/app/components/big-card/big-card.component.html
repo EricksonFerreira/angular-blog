@@ -1,7 +1,7 @@
-<div class="container__big-card">
+<div class="container__big-card"  *ngIf="mensagemAleatoria">
   <div class="big-card__photo">
     <img
-      src="https://clashroyale.com/uploaded-images-blog/PT_Social_1024x576.jpg?mtime=20190415112248"
+      src="{{ mensagemAleatoria.photo }}"
       alt=""
       height="200px"
       srcset=""
@@ -9,17 +9,12 @@
   </div>
   <div class="big-card__title">
     <h1>
-      <a href="#"> Atualização de Abril no  Clash Royale </a>
+      <a href="#"> {{ mensagemAleatoria.title }} </a>
     </h1>
   </div>
   <div class="big-card__description">
     <p>
-      <a href="#">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
-        culpa quo vero! Ratione, necessitatibus quis mollitia id accusamus fuga
-        doloremque autem facilis officia veniam! Aliquam laborum tenetur optio
-        exercitationem eligendi.
-      </a>
+      <a href="#">{{ mensagemAleatoria.description }} </a>
     </p>
   </div>
 </div>

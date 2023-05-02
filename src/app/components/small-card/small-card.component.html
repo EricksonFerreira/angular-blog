@@ -1,8 +1,8 @@
-<div class="container__small-card">
+<div class="container__small-card" *ngFor="let msg of mensagens">
   <div class="container__small-card-content">
     <div class="small-card__photo">
       <img
-        src="https://articles-img.sftcdn.net/f_auto,t_article_cover_xl/auto-mapping-folder/sites/2/2022/04/clash-royale.jpg"
+        src="{{ msg.photo }}"
         alt=""
         height="200px"
         srcset=""
@@ -10,7 +10,7 @@
     </div>
     <div class="small-card__title">
       <h1>
-        <a href="#"> Ajustes de equilibrio</a>
+        <a href="#">{{msg.title}}</a>
       </h1>
     </div>
   </div>
