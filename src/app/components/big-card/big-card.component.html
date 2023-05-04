@@ -1,7 +1,7 @@
-<div class="container__big-card"  *ngIf="mensagemAleatoria">
+<div class="container__big-card"  *ngFor="let msg of mensagem">
   <div class="big-card__photo">
     <img
-      src="{{ mensagemAleatoria.photo }}"
+      src="{{ msg.photo }}"
       alt=""
       height="200px"
       srcset=""
@@ -9,12 +9,12 @@
   </div>
   <div class="big-card__title">
     <h1>
-      <a href="#"> {{ mensagemAleatoria.title }} </a>
+      <a [routerLink]="['content',msg.id]"> {{ msg.title }} </a>
     </h1>
   </div>
   <div class="big-card__description">
     <p>
-      <a href="#">{{ mensagemAleatoria.description }} </a>
+      <a [routerLink]="['content',msg.id]">{{ msg.description }} </a>
     </p>
   </div>
 </div>

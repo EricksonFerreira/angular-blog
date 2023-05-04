@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {Mensagem} from '../../model/mensagem.model';
+import { dataFake } from '../../data/dataFake';
 
 
 @Component({
@@ -9,25 +10,21 @@ import {Mensagem} from '../../model/mensagem.model';
 })
 export class BigCardComponent implements OnInit {
 
-    mensagem: Mensagem[] = [
-    {
-      photo: 'https://clashroyale.com/uploaded-images-blog/PT_Social_1024x576.jpg?mtime=20190415112248',
-      title: 'ATUALIZAÇÃO DE ABRIL NO CLASH ROYALE',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur culpa quo vero! Ratione, necessitatibus quis mollitia id accusamus fuga doloremque autem facilis officia veniam! Aliquam laborum tenetur optio exercitationem eligendi.'
-    },
-    {
-      photo: 'https://pbs.twimg.com/media/FPCE7rEXMAsBY0u.jpg:large',
-      title: 'A ATUALIZAÇÃO DO MINEIRO',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur culpa quo vero! Ratione, necessitatibus quis mollitia id accusamus fuga doloremque autem facilis officia veniam! Aliquam laborum tenetur optio exercitationem eligendi.'
-    },
-    {
-      photo: 'https://www.clashroyaledicas.com/wp-content/uploads/2021/03/sneak-peek-itens-magicos-clash-royale.jpg',
-      title: 'NOVA ATUALIZAÇÃO MÁGICA',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur culpa quo vero! Ratione, necessitatibus quis mollitia id accusamus fuga doloremque autem facilis officia veniam! Aliquam laborum tenetur optio exercitationem eligendi.'
-    },
-  ];
+  mensagem = this.getMensagens(dataFake,1);
 
-  mensagemAleatoria = this.mensagem[Math.floor(Math.random() * this.mensagem.length)];
+  getMensagens(mensagem: any,tamanho:number) {
+    const numeroItensAleatorios = Math.floor(Math.random() * Mensagem.length) + tamanho; // Número aleatório de itens entre 1 e o tamanho do array
+    const copiaMensagem = [...mensagem]; // Cria uma cópia do array Mensagem
+    const itensAleatorios = [];
+
+    for (let i = 0; i < numeroItensAleatorios; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * copiaMensagem.length);
+      const itemAleatorio = copiaMensagem.splice(indiceAleatorio, 1)[0];
+      itensAleatorios.push(itemAleatorio);
+    }
+    return itensAleatorios;
+  }
+
 
   constructor() {
   }
